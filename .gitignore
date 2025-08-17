@@ -12,6 +12,11 @@ wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 wp-content/plugins/akismet/
 
+# WordPress Security Files (auto-generated)
+wp-content/index.php
+wp-content/plugins/index.php
+wp-content/themes/index.php
+
 # WordPress Default Themes (keep only your custom theme)
 wp-content/themes/twentytwentythree/
 wp-content/themes/twentytwentyfour/
