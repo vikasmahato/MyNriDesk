@@ -74,60 +74,19 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Header element NOT found!');
     }
 
-                // Mobile Menu Toggle
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-            
-            if (mobileMenuToggle && mobileMenuContainer) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    const isActive = mobileMenuContainer.classList.contains('active');
-                    
-                    if (isActive) {
-                        // Close menu
-                        mobileMenuContainer.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                        document.body.style.overflow = '';
-                    } else {
-                        // Open menu
-                        mobileMenuContainer.classList.add('active');
-                        mobileMenuToggle.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
-                
-                // Close menu when clicking on menu items
-                const mobileMenuLinks = mobileMenuContainer.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenuContainer.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!mobileMenuToggle.contains(e.target) && !mobileMenuContainer.contains(e.target)) {
-                        mobileMenuContainer.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+        });
+    });
 
     // Debug: Log what we found
     console.log('Service cards found:', serviceCards.length);

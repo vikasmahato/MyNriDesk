@@ -22,34 +22,26 @@
                     <?php if (is_front_page() && is_home()) : ?>
                         <h1 class="site-title">
                             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                                My NRI Desk
+                                <?php bloginfo('name'); ?>
                             </a>
                         </h1>
                     <?php else : ?>
                         <p class="site-title">
                             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                                My NRI Desk
+                                <?php bloginfo('name'); ?>
                             </a>
                         </p>
                     <?php endif; ?>
                 </div>
 
                 <nav id="site-navigation" class="main-navigation">
-                    <button class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    
-                    <div class="mobile-menu-container">
-                        <?php
-                        wp_nav_menu(array(
-                            'theme_location' => 'menu-1',
-                            'menu_id'        => 'primary-menu',
-                            'fallback_cb'    => 'professional_advisory_fallback_menu',
-                        ));
-                        ?>
-                    </div>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'menu-1',
+                        'menu_id'        => 'primary-menu',
+                        'fallback_cb'    => 'professional_advisory_fallback_menu',
+                    ));
+                    ?>
                 </nav>
             </div>
         </div>

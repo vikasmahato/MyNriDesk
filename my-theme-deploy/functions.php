@@ -16,11 +16,6 @@ function professional_advisory_setup() {
 
     // Let WordPress manage the document title.
     add_theme_support('title-tag');
-    
-    // Set default site title if not configured
-    if (get_option('blogname') === '') {
-        update_option('blogname', 'My NRI Desk');
-    }
 
     // Enable support for Post Thumbnails on posts and pages.
     add_theme_support('post-thumbnails');
