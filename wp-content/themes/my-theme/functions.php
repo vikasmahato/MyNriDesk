@@ -58,6 +58,9 @@ function professional_advisory_scripts() {
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
+    
+    // Enqueue custom animation script
+    wp_enqueue_script('professional-advisory-animations', get_template_directory_uri() . '/assets/js/animations.js', array(), _S_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'professional_advisory_scripts');
 
@@ -68,6 +71,7 @@ function professional_advisory_fallback_menu() {
     echo '<ul id="primary-menu" class="menu nav-menu">';
     echo '<li class="menu-item"><a href="' . esc_url(home_url('/')) . '">Home</a></li>';
     echo '<li class="menu-item"><a href="#services">Services</a></li>';
+    echo '<li class="menu-item"><a href="#digital-solutions">Digital Solutions</a></li>';
     echo '<li class="menu-item"><a href="#about">About</a></li>';
     echo '<li class="menu-item"><a href="#contact">Contact</a></li>';
     echo '</ul>';
