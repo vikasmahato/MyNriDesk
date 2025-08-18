@@ -104,11 +104,13 @@ body {
     padding: 1rem 0;
     z-index: 1000;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .site-header.scrolled {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .header-content {
@@ -116,6 +118,7 @@ body {
     justify-content: space-between;
     align-items: center;
     min-height: 60px;
+    width: 100%;
 }
 
 .site-branding {
@@ -215,9 +218,7 @@ body {
 
 /* Debug: Make sure navigation is visible */
 .main-navigation {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.5rem 0;
 }
 
 /* Additional navigation styling */
@@ -264,6 +265,10 @@ body {
     border: 1px solid #e9ecef;
     opacity: 1 !important;
     transform: translateY(0) !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
 }
 
 .service-card:hover {
@@ -331,8 +336,6 @@ body {
     margin-right: auto;
 }
 
-
-
 .development-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -359,14 +362,12 @@ body {
 
 /* Ensure background images are properly displayed */
 .web-dev-card {
-    background-image: url('../assets/images/web-development-bg.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
 .app-dev-card {
-    background-image: url('../assets/images/app-development-bg.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -483,13 +484,6 @@ body {
     list-style: none;
     padding: 0;
     margin-bottom: 2rem;
-}
-
-.development-card li {
-    padding: 0.5rem 0;
-    color: rgba(255, 255, 255, 0.9);
-    position: relative;
-    padding-left: 1.5rem;
 }
 
 .development-card li {
@@ -883,76 +877,6 @@ body {
     box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
 }
 
-/* Blog Section */
-.blog-section {
-    padding: 5rem 0;
-    background: #f8f9fa;
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.blog-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #e9ecef;
-}
-
-.blog-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.blog-card .entry-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.blog-card .entry-title a {
-    color: #1e3c72;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.blog-card .entry-title a:hover {
-    color: #2a5298;
-}
-
-.blog-card .entry-meta {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-bottom: 1rem;
-}
-
-.blog-card .entry-meta span {
-    margin-right: 1rem;
-}
-
-.blog-card .entry-summary {
-    color: #6c757d;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.blog-card .read-more {
-    color: #e74c3c;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.blog-card .read-more:hover {
-    color: #c0392b;
-}
-
 /* Footer */
 .site-footer {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -1092,8 +1016,7 @@ body {
     }
     
     .services-grid,
-    .development-grid,
-    .blog-grid {
+    .development-grid {
         grid-template-columns: 1fr;
     }
     
@@ -1120,8 +1043,6 @@ body {
         max-width: 300px;
         text-align: center;
     }
-    
-
     
     .development-cta-section {
         padding: 2rem 1rem;

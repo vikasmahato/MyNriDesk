@@ -1,5 +1,14 @@
 // Text Animation for Development Cards
 document.addEventListener('DOMContentLoaded', function() {
+    // Force service cards to be visible
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        card.style.visibility = 'visible';
+        card.style.display = 'block';
+    });
+
     // Intersection Observer for triggering animations
     const observerOptions = {
         threshold: 0.3,
@@ -56,4 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Debug: Log what we found
+    console.log('Service cards found:', serviceCards.length);
+    console.log('Development cards found:', developmentCards.length);
 }); 
