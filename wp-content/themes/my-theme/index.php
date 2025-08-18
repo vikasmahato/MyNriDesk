@@ -248,3 +248,8 @@
         </div>
     </div>
 </footer> 
+<?php // Close the main page container opened in header.php and load footer scripts ?>
+</div>
+<?php wp_footer(); ?>
+</body>
+</html>

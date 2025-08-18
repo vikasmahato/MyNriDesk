@@ -1,5 +1,8 @@
 // Text Animation for Development Cards
+console.log('Animations.js loaded successfully!');
+
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded event fired');
     // Force service cards to be visible
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
@@ -43,13 +46,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
     const header = document.querySelector('.site-header');
     if (header) {
+        console.log('Header element found:', header);
+        
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
+            const scrollY = window.scrollY;
+            console.log('Scroll position:', scrollY);
+            
+            if (scrollY > 100) {
                 header.classList.add('scrolled');
+                console.log('Added scrolled class');
             } else {
                 header.classList.remove('scrolled');
+                console.log('Removed scrolled class');
             }
         });
+        
+        // Test the scrolled class immediately
+        setTimeout(() => {
+            header.classList.add('scrolled');
+            console.log('Test: Added scrolled class');
+            setTimeout(() => {
+                header.classList.remove('scrolled');
+                console.log('Test: Removed scrolled class');
+            }, 2000);
+        }, 1000);
+    } else {
+        console.log('Header element NOT found!');
     }
 
     // Smooth scrolling for anchor links

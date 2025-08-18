@@ -14,6 +14,30 @@ Text Domain: professional-advisory
     box-sizing: border-box;
 }
 
+/* Prevent text selection on non-input elements */
+body, div, section, article, aside, header, footer, nav, h1, h2, h3, h4, h5, h6, p, span, a, li, ul, ol, table, tr, td, th {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Allow text selection on input fields and textareas */
+input, textarea, [contenteditable="true"] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Allow text selection on specific elements where it might be needed */
+.contact-form, .form-group {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
@@ -108,17 +132,32 @@ body {
 }
 
 .site-header.scrolled {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    box-shadow: 0 2px 20px rgba(30, 60, 114, 0.3) !important;
+    padding: 0.75rem 0 !important;
+}
+
+/* Force scrolled state with higher specificity */
+.site-header.scrolled,
+header.site-header.scrolled,
+#masthead.site-header.scrolled {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    box-shadow: 0 2px 20px rgba(30, 60, 114, 0.3) !important;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 60px;
+    min-height: 72px;
     width: 100%;
+}
+
+/* More compact header when scrolled */
+.site-header.scrolled .header-content {
+    min-height: 64px;
 }
 
 .site-branding {
@@ -881,9 +920,11 @@ body {
 .site-footer {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
-    padding: 4rem 0 2rem;
+    padding: 6rem 0 2rem;
     position: relative;
     overflow: hidden;
+    margin-top: 80px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .site-footer::before {
